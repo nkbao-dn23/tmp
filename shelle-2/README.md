@@ -12,7 +12,7 @@ Attachments: [Dockerfile] and [shelle-2]
 ```
 
 # Solution
-- After downloading 2 files [Dockerfile](challenge/Dockerfile) and [shelle-2](challenge/shelle-2): , let's run the binary file to see what it does. It looks like have a while loop allowing us to send input multiple times, print the same output, and the program exits when we send "exit" string.
+- After downloading 2 files [Dockerfile](challenge/Dockerfile) and [shelle-2](challenge/shelle-2), let's run the binary file to see what it does. It looks like have a while loop allowing us to send input multiple times, print the same output, and the program exits when we send "exit" string.
 
 <img src="tmp/begin.png">
 
