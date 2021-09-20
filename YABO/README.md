@@ -42,7 +42,7 @@ Attachments: [YABO]
 
 - I have an idea to build a `shellcode` like this: **open file flag, read it into writable memory, creating socket, sending the flag to the outside server**. It'll work, I know, but writing `this shellcode` is a little bit complex, so I got the better idea: **open file flag, read it into writable memory, write the flag to fd 4**. Yes, **fd 4**, the program interactive with us via `fd 4`, so if the program send `the flag` to `fd 4`, we will recieve it :xD 
 
-- And this is my `shellcode`:
+- And this is my `shellcode`, it's based on [this docs](https://syscalls32.paolostivanin.com/):
 
 ```sh
 0:  31 c0                   xor    eax,eax
