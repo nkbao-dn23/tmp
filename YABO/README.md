@@ -15,7 +15,7 @@ Attachments: [YABO]
 - After downloading [YABO](challenge/YABO), let's run the binary file to see what it does. It prints an output, and let our send multiple inputs without responding (`bash 0` picture) . It looks like the program open a new port in our machine and waiting for a new connection to that port. Let's check it with `netstat` and ... that's true... wait a sec (`0.0.0.0` :xD). After we connect to that port, we recieve an output, and it allow us to send one input, then that connection will be closed, but port 9999 is still open and waiting for the others connection.  
 
 
-<img src="tmp/tmp/begin.png">
+<img src="tmp/begin.png">
 
 - Let's take a look at `main` function in `IDA`. Before the program print output "Running server...", it sets up a `socket` and `bind` it to a `listening port`. After that it call `vuln` function. Before we go to that function, let's me explain what the `main` function does. As you know, when you write a program, if you want to run it just simple run it because you have that file :vv. But if you want the other people run the binary file without that binary file :vv, you need to `bind` it to an `open port`, for me, I usually use `ncat`: `ncat -e ./binary -lk x.x.x.x xxxx`. So other people can connect to that `address` and `interactive` with the `binary program`. In short, we need 2 things: create binary file and run it in a listening port. Well, in this challenge, the `bianry`'ve already created a `listening port` itself and the code we'll interactive when connecting to `that port` is in `vuln` function. So if you run the binary file in local, the program you really want to interactive is actually running on `port 9999`. Ok now let's see what the program does in `port 9999`, it is in `vuln` function.
 
