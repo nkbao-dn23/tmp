@@ -23,7 +23,7 @@ Attachments: [libc-2.31.so] and [sharp]
 	+ Now just `create` a `chunk` with size of `0x790`, then `chunk3.fd` and `chunk3.bk` will be overwrited by `main_arena+96`. Since `chunk3` is still `in_used` so we can use `print_database` function to leak `that address` in `chunk3.fd` out.
 	+ Now we have `libc_base address`.
 
-- Make the second plan to overwrite `__free_hook`. Basically, the technique I use to overwrite `__free_hook` is the same as the one I use to exploit **Pawned** challenge. The idea will be:
+- Make the second plan to overwrite `__free_hook`. Basically, the `technique` I use to overwrite `__free_hook` is the same as the one I use to exploit **Pawned** challenge. The idea will be:
 	+ Create 4 `chunk` as size: 0x80, 0x80, 0x80, 0x80. Well, the `size` of the 2 `first chunk` is any, the `size` of 2 `last chunk` is **same size** and **< 0x400**.
 	+ `Free` `chunk4` and then `free` `chunk3`
 	+ `Edit` `chunk1` to overwrite `chunk2.size` to `0x81 + 8`
