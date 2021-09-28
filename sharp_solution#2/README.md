@@ -8,7 +8,7 @@ Attachments: [libc-2.31.so] and [sharp]
 ```
 
 # Solution
-- After downloading [sharp](challenge/sharp), just open it in IDA-64bit and you will see the vulnerabilty in `edit_user` function. Look at `line 27`, it uses `fgets` (`sub_401150`) to `edit` our chunk, but the **bug** is in `v5 variable` - it is the `argument` of `fgets` and it is taken from it's `chunk.size` (`line 23`) - that means we have `heap overflow` `0x10 bytes` here. In fact, if we change the `nextchunk.size`, we have `unlimited` `overflow` in `heap`.
+- After downloading [sharp](challenge/sharp), just open it in IDA-64bit and you will see the vulnerabilty in `edit_user` function. Look at `line 27`, it uses `fgets` (`sub_401150`) to `edit` our chunk, but the **bug** is in `v5 variable` - it is the `second argument` of `fgets` and it is taken from it's `chunk.size` (`line 23`) - that means we have `heap overflow` `0x10 bytes` here. In fact, if we change the `nextchunk.size`, we have `unlimited` `overflow` in `heap`.
 
 <img src="tmp/vuln.png">
 
